@@ -5,7 +5,14 @@ const query = (req, res) => {
 
   axios
     .get(url)
-    .then(response => res.json(response.data))
+    .then(response => {
+      res
+        .status(200)
+        .send({
+          response_type: 'in_channel',
+          text: `${response.data.cep} - ${response.data.logradouro}, ${response.data.bairro} - ${response.data.localidade} ${response.data.uf}`,
+        })
+    })
     .catch(error => res.status(500).send(error))
 }
 
