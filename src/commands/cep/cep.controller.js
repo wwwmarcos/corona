@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 const query = (req, res) => {
-  const url = `https://viacep.com.br/ws/${req.body.cep}/json/`
+  const url = `https://viacep.com.br/ws/${req.body.text}/json/`
 
   axios
     .get(url)
